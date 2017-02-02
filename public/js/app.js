@@ -24,12 +24,13 @@ var vBubble = (function() {
 		if(i < arr.length - 1) {
 			let needSwitch = arr[i] > arr[i+1];
 			returnObj.action = 'compare';
-			returnObj.opID = [i, i+1];
+			returnObj.opID = [arr[i], arr[i+1]];
 			if(needSwitch) {
 				notDone = true;
 				disorder = true;
+			}else{
+				i++;
 			}
-			i++;
 			return returnObj;
 		}else{
 			i = 0;
@@ -55,11 +56,15 @@ var vBubble = (function() {
 	function _next() {
 		if(disorder) {
 			disorder = false;
+			returnObj.action = 'switch';
+			returnObj.opID = [arr[i], arr[i+1]];
 			let temp = arr[i];
 			arr[i] = arr[i+1];
 			arr[i+1] = temp;
+			i++;
+			return returnObj;
 		}else{
-			stack[stack.length-1]();
+			return stack[stack.length-1]();
 		}
 	}
 
