@@ -12,6 +12,7 @@ function reset() {
 	currOp = [];
 	vBubble.reset();
 	clearTimeout(window.timer);
+	autoBtn.style.backgroundColor = "black";
 	document.getElementById('round').innerText = '0';
 	document.getElementById('item-container').innerHTML = '';
 }
@@ -77,6 +78,7 @@ function pause() {
 	clearTimeout(window.timer);
 	autoBtn.innerText = "Manual";
 	nextBtn.innerText = "Next";
+	autoBtn.style.backgroundColor = "black";
 }
 
 function auto() {
@@ -85,11 +87,13 @@ function auto() {
 			window.timer = setInterval(next, 1000);
 			autoBtn.innerText = "Slow";
 			nextBtn.innerText = "Pause";
+			autoBtn.style.backgroundColor = "orange";
 			break;
 		case "Slow":
 			clearTimeout(window.timer);
 			window.timer = setInterval(next, 100);
 			autoBtn.innerText = "Fast";
+			autoBtn.style.backgroundColor = "#E74C3C";
 			break;
 		case "Fast":
 			pause();

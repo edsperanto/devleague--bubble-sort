@@ -18,6 +18,16 @@ body {
 	justify-content: center;
 }
 
+#main-container {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	width: 70%;
+	height: 80%;
+	background-color: white;
+	display: flex;
+	flex-flow: column wrap;
+}
+
 #next {
 	padding: 1rem;
 	background-color: white;
@@ -56,15 +66,6 @@ body {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	cursor: text;
-}
-
-#main-container {
-	margin-top: 1rem;
-	width: 70%;
-	height: 80%;
-	background-color: white;
-	display: flex;
-	flex-flow: column wrap;
 }
 
 #title {
