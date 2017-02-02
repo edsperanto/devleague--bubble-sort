@@ -1,0 +1,33 @@
+{
+  "name": "devleague--bubble-sort",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.1",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+		"start": "nodemon .",
+    "test": "mocha",
+		"test-watch": "mocha --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edsperanto/devleague--bubble-sort.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edsperanto/devleague--bubble-sort/issues"
+  },
+  "homepage": "https://github.com/edsperanto/devleague--bubble-sort#readme"
+}
