@@ -56,6 +56,7 @@ function next() {
 			currOp.forEach(item => item.style.backgroundColor = "#6991AC");
 			currOp = [itemList[op1], itemList[op2]];
 			currOp.forEach(item => item.style.backgroundColor = compare ? "#E74C3C" : "#27AE60");
+			document.getElementById('round').innerText = output.round;
 			break;
 		case "switch":
 			let temp = itemList[op1].innerText;

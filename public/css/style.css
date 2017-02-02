@@ -30,6 +30,15 @@ body {
 #edit-container {
 	padding: 1rem;
 	padding-bottom: 0;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#edit-container div {
+	flex: 1 0 30%;
+	color: white;
+	background-color: #67727A;
+	padding: 0.5rem;
 }
 
 #edit {
@@ -37,6 +46,7 @@ body {
 	font-size: 1rem;
 	height: 1.5rem;
 	width: 100%;
+	margin-bottom: 1rem;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
@@ -60,6 +70,7 @@ body {
 
 #item-container {
 	margin: 1rem;
+	margin-top: 0;
 	border: solid 3px #C3D7DF;
 }
 
@@ -70,7 +81,7 @@ body {
 	border: solid 3px #C3D7DF;
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 730px) {
 	html {
 		font-size: 20px;
 	}
