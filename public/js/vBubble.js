@@ -24,7 +24,7 @@ var vBubble = (function() {
 		if(i < arr.length - 1) {
 			let needSwitch = arr[i] > arr[i+1];
 			returnObj.action = 'compare';
-			returnObj.opID = [arr[i], arr[i+1]];
+			returnObj.opID = [i, i+1];
 			if(needSwitch) {
 				notDone = true;
 				disorder = true;
@@ -74,8 +74,7 @@ var vBubble = (function() {
 		append: _append,
 		remove: _remove,
 		reset: _reset,
-		next: _next,
-		arr: arr
+		next: _next
 	}
 
 })();
