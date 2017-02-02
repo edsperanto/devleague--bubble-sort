@@ -59,7 +59,7 @@ var vBubble = (function() {
 		if(disorder) {
 			disorder = false;
 			returnObj.action = 'switch';
-			returnObj.opID = [arr[i], arr[i+1]];
+			returnObj.opID = [i, i+1];
 			let temp = arr[i];
 			arr[i] = arr[i+1];
 			arr[i+1] = temp;
