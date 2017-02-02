@@ -2,13 +2,14 @@
 	box-sizing: border-box;
 	margin: 0; padding: 0;
 	border-style: none;
+  user-select: none;
+	cursor: default;
 }
 
 html {
 	font-size: 30px;
 	font-family: Arial;
 	background-color: #67727A;
-  user-select: none;
 }
 
 body {
@@ -17,10 +18,11 @@ body {
 	justify-content: center;
 }
 
-#next, #pause {
+#next {
 	padding: 1rem;
 	background-color: white;
 	border: solid 5px black;
+	border-radius: 1rem;
 	position: fixed;
 	right: 5%;
 	bottom: 5%;
@@ -53,6 +55,7 @@ body {
 	margin-bottom: 1rem;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+	cursor: text;
 }
 
 #main-container {

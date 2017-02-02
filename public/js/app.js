@@ -1,13 +1,16 @@
+const allowChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '.', '-'];
+const editor = document.getElementById('edit');
+const nextBtn = document.getElementById('next');
+const autoBtn = document.getElementById('auto');
 var itemList = [];
 var currOp = [];
-var allowChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '.', '-'];
-var editor = document.getElementById('edit');
 editor.value = "5 1 4 2 8 0 7 3 9 6";
 
 function reset() {
 	pause();
 	itemList = [];
 	currOp = [];
+	vBubble.reset();
 	clearTimeout(window.timer);
 	document.getElementById('round').innerText = '0';
 	document.getElementById('item-container').innerHTML = '';
@@ -15,22 +18,14 @@ function reset() {
 
 function initialize() {
 	let i = 0;
-	let frag = document.createDocumentFragment();
 	let numList = editor.value.trim().split(' ');
 	reset();
 	numList.forEach(num => {
-		let item = document.createElement('div');
 		if(isNaN(Number(num)) || num == '') { return false; }
-		num = Number(num);
-		item.className = 'item';
-		item.id = ++i;
-		item.innerText = num;
-		frag.appendChild(item);
+		document.getElementById('item-container').innerHTML 
+			+= `<div class="item" id=${++i}>${Number(num)}</div>`;
 	});
-	document.getElementById('item-container').appendChild(frag);
 	itemList = document.getElementsByClassName('item');
-	vBubble.reset();
-	pause();
 	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 };
 
@@ -80,17 +75,16 @@ function next() {
 
 function pause() {
 	clearTimeout(window.timer);
-	document.getElementById('auto').innerText = "Manual";
-	document.getElementById('next').innerText = "Next";
+	autoBtn.innerText = "Manual";
+	nextBtn.innerText = "Next";
 }
 
 function auto() {
-	let autoBtn = document.getElementById('auto');
 	switch(autoBtn.innerText) {
 		case "Manual":
 			window.timer = setInterval(next, 1000);
 			autoBtn.innerText = "Slow";
-			document.getElementById('next').innerText = "Pause";
+			nextBtn.innerText = "Pause";
 			break;
 		case "Slow":
 			clearTimeout(window.timer);
@@ -102,7 +96,9 @@ function auto() {
 			autoBtn.innerText = "Manual";
 			break;
 		default:
-			alert("This is what you get for trying to hack me");
+			setInterval(() => {
+				alert("This is what you get for trying to hack me");
+			}, 500);
 	}
 }
 
@@ -116,5 +112,5 @@ function nextHandler() {
 
 initialize();
 document.getElementById('title').addEventListener('click', edit);
-document.getElementById('next').addEventListener('click', nextHandler);
-document.getElementById('auto').addEventListener('click', auto);
+nextBtn.addEventListener('click', nextHandler);
+autoBtn.addEventListener('click', auto);
