@@ -35,13 +35,15 @@ var vBubble = (function() {
 		}else{
 			i = 0;
 			stack.pop();
+			return _next();
 		}
 	}
 
 	function _repeat() {
 		if(notDone) {
 			stack.push(_loopThru);
-			_next();
+			notDone = false;
+			return _next();
 		}else{
 			returnObj.action = 'end';
 			return returnObj;
@@ -72,7 +74,8 @@ var vBubble = (function() {
 		append: _append,
 		remove: _remove,
 		reset: _reset,
-		next: _next
+		next: _next,
+		arr: arr
 	}
 
 })();
@@ -81,3 +84,9 @@ for(let i = 1; i <= 10; i++) {
 	vBubble.append(document.getElementById(i).innerText);
 }
 vBubble.reset();
+
+let output = { action: 'start' };
+while(output.action !== 'end') {
+	output = vBubble.next();
+	console.log(output.opID[0], output.opID[1]);
+}
