@@ -46,7 +46,7 @@ var vBubble = (function() {
 			return _next();
 		}else{
 			returnObj.action = 'end';
-			returnObj.opID = arr;
+			returnObj.opID = [0, 1];
 			return returnObj;
 		}
 	}
