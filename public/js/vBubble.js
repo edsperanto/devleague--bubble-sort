@@ -53,7 +53,15 @@ var vBubble = (function() {
 
 	function _reset() {
 		arr = [];
-		returnObj.round = 1;
+		i = 0;
+		notDone = true;
+		disorder = false;
+		stack = [];
+		returnObj = {
+			round: 1,
+			action: null,
+			opID: []
+		}
 		stack.push(_repeat);
 		stack.push(_loopThru);
 	}

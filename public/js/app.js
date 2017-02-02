@@ -1,15 +1,23 @@
-var numList;
 var itemList = [];
 var currOp = [];
 var allowChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '.', '-'];
 var editor = document.getElementById('edit');
 editor.value = "5 1 4 2 8 0 7 3 9 6";
 
+function reset() {
+	pause();
+	itemList = [];
+	currOp = [];
+	clearTimeout(window.timer);
+	document.getElementById('round').innerText = '0';
+	document.getElementById('item-container').innerHTML = '';
+}
 
 function initialize() {
 	let i = 0;
 	let frag = document.createDocumentFragment();
-	numList = editor.value.trim().split(' ');
+	let numList = editor.value.trim().split(' ');
+	reset();
 	numList.forEach(num => {
 		let item = document.createElement('div');
 		if(isNaN(Number(num)) || num == '') { return false; }
@@ -19,13 +27,9 @@ function initialize() {
 		item.innerText = num;
 		frag.appendChild(item);
 	});
-	document.getElementById('round').innerText = '0';
-	document.getElementById('item-container').innerHTML = '';
 	document.getElementById('item-container').appendChild(frag);
 	itemList = document.getElementsByClassName('item');
-	clearTimeout(window.timer);
 	vBubble.reset();
-	currOp = [];
 	pause();
 	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 };
@@ -70,7 +74,6 @@ function next() {
 			Array.prototype.forEach.call(itemList, item => item.style.backgroundColor = "#27AE60");
 			break;
 		default:
-			console.log('valid action');
 	}
 	center(itemList[op1]);
 }
@@ -83,7 +86,6 @@ function pause() {
 
 function auto() {
 	let autoBtn = document.getElementById('auto');
-	console.log(autoBtn.innerText);
 	switch(autoBtn.innerText) {
 		case "Manual":
 			window.timer = setInterval(next, 1000);
