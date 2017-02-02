@@ -2,12 +2,11 @@ var vBubble = (function() {
 
 	var arr = [];
 	var i = 0;
-	var round = 0;
 	var notDone = true;
 	var disorder = false;
 	var stack = [];
 	var returnObj = {
-		round: 0,
+		round: 1,
 		action: null,
 		opID: []
 	}
@@ -21,7 +20,7 @@ var vBubble = (function() {
 	}
 
 	function _loopThru() {
-		if(i < arr.length - 1) {
+		if(i < arr.length - returnObj.round) {
 			let needSwitch = arr[i] > arr[i+1];
 			returnObj.action = 'compare';
 			returnObj.opID = [i, i+1];
@@ -41,6 +40,7 @@ var vBubble = (function() {
 
 	function _repeat() {
 		if(notDone) {
+			returnObj.round++;
 			stack.push(_loopThru);
 			notDone = false;
 			return _next();
