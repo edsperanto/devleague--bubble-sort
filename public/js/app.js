@@ -22,8 +22,9 @@ function initialize() {
 	document.getElementById('item-container').innerHTML = '';
 	document.getElementById('item-container').appendChild(frag);
 	itemList = document.getElementsByClassName('item');
-	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 	vBubble.reset();
+	currOp = [];
+	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 };
 
 function center(div) {
