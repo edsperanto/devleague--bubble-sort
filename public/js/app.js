@@ -12,8 +12,8 @@ function initialize() {
 	numList = editor.value.trim().split(' ');
 	numList.forEach(num => {
 		let item = document.createElement('div');
-		if(num == '') { return false; }
-		if(num == '.') { num = 0; }
+		if(isNaN(Number(num)) || num == '') { return false; }
+		num = Number(num);
 		item.className = 'item';
 		item.id = ++i;
 		item.innerText = num;
