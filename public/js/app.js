@@ -1,11 +1,23 @@
+var numList = [5, 1, 4, 2, 8];
 var itemList = [];
 var currOp = [];
 
-(function initialize() {
+function initialize() {
+	let i = 0;
+	let frag = document.createDocumentFragment();
+	numList.forEach(num => {
+		let item = document.createElement('div');
+		item.className = 'item';
+		item.id = ++i;
+		item.innerText = num;
+		frag.appendChild(item);
+	});
+	document.getElementById('item-container').innerHTML = '';
+	document.getElementById('item-container').appendChild(frag);
 	itemList = document.getElementsByClassName('item');
 	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 	vBubble.reset();
-})();
+};
 
 function center(div) {
 	let divBottom = div.offsetTop + div.getBoundingClientRect().height;
@@ -13,7 +25,11 @@ function center(div) {
 	window.scrollTo(0, divBottom - wHeight / 2);
 }
 
-document.getElementById('next').addEventListener('click', () => {
+function edit() {
+
+}
+
+function next() {
 	let output = vBubble.next();
 	let op1 = output.opID[0];
 	let op2 = output.opID[1];
@@ -36,4 +52,8 @@ document.getElementById('next').addEventListener('click', () => {
 			console.log('invalid action');
 	}
 	center(itemList[op1]);
-});
+}
+
+initialize();
+document.getElementById('title').addEventListener('click', edit);
+document.getElementById('next').addEventListener('click', next);
