@@ -4,6 +4,42 @@
 	border-style: none;
 }
 
+html {
+	font-size: 30px;
+	font-family: Arial;
+	background-color: #67727A;
+}
+
 body {
-	background-color: orange;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+#main-container {
+	margin-top: 1rem;
+	width: 60%;
+	height: 80%;
+	background-color: white;
+	display: flex;
+	flex-flow: column wrap;
+}
+
+#title {
+	color: white;
+	background-color: #D75C37;
+	padding: 1rem; 
+	font-size: 2rem;
+}
+
+#item-container {
+	margin: 1rem;
+	border: solid 3px #C3D7DF;
+}
+
+.item {
+	background-color: #6991AC;
+	padding: 0.5rem;
+	color: white;
+	border: solid 3px #C3D7DF;
 }
