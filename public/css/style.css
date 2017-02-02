@@ -17,7 +17,7 @@ body {
 	justify-content: center;
 }
 
-#next {
+#next, #pause {
 	padding: 1rem;
 	background-color: white;
 	border: solid 5px black;
@@ -39,6 +39,10 @@ body {
 	color: white;
 	background-color: #67727A;
 	padding: 0.5rem;
+}
+
+#auto {
+	cursor: pointer;
 }
 
 #edit {

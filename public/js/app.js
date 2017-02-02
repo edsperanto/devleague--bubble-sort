@@ -1,7 +1,7 @@
 var numList;
 var itemList = [];
 var currOp = [];
-var allowChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '.'];
+var allowChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '.', '-'];
 var editor = document.getElementById('edit');
 editor.value = "5 1 4 2 8 0 7 3 9 6";
 
@@ -19,11 +19,14 @@ function initialize() {
 		item.innerText = num;
 		frag.appendChild(item);
 	});
+	document.getElementById('round').innerText = '0';
 	document.getElementById('item-container').innerHTML = '';
 	document.getElementById('item-container').appendChild(frag);
 	itemList = document.getElementsByClassName('item');
+	clearTimeout(window.timer);
 	vBubble.reset();
 	currOp = [];
+	pause();
 	Array.prototype.forEach.call(itemList, item => vBubble.append(item.innerText));
 };
 
@@ -43,7 +46,7 @@ function edit() {
 		})
 	}
 	if(notValid) { alert('numbers only!'); }
-	else{ initialize() }
+	else{ initialize(); }
 }
 
 function next() {
@@ -72,6 +75,44 @@ function next() {
 	center(itemList[op1]);
 }
 
+function pause() {
+	clearTimeout(window.timer);
+	document.getElementById('auto').innerText = "Manual";
+	document.getElementById('next').innerText = "Next";
+}
+
+function auto() {
+	let autoBtn = document.getElementById('auto');
+	console.log(autoBtn.innerText);
+	switch(autoBtn.innerText) {
+		case "Manual":
+			window.timer = setInterval(next, 1000);
+			autoBtn.innerText = "Slow";
+			document.getElementById('next').innerText = "Pause";
+			break;
+		case "Slow":
+			clearTimeout(window.timer);
+			window.timer = setInterval(next, 100);
+			autoBtn.innerText = "Fast";
+			break;
+		case "Fast":
+			pause();
+			autoBtn.innerText = "Manual";
+			break;
+		default:
+			alert("This is what you get for trying to hack me");
+	}
+}
+
+function nextHandler() {
+	if(this.innerText == 'Next') {
+		next();
+	}else{
+		pause();
+	}
+}
+
 initialize();
 document.getElementById('title').addEventListener('click', edit);
-document.getElementById('next').addEventListener('click', next);
+document.getElementById('next').addEventListener('click', nextHandler);
+document.getElementById('auto').addEventListener('click', auto);
