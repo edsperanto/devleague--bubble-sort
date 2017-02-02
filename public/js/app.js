@@ -17,12 +17,10 @@ document.getElementById('title').addEventListener('click', () => {
 	console.log(output);
 	switch(output.action) {
 		case "compare":
-			currOp.forEach(item => {
-				item.style.backgroundColor = "#6991AC";
-			});
+			let compare = Number(itemList[op1].innerText) > Number(itemList[op2].innerText);
+			currOp.forEach(item => item.style.backgroundColor = "#6991AC");
 			currOp = [itemList[op1], itemList[op2]];
-			itemList[op1].style.backgroundColor = "green";
-			itemList[op2].style.backgroundColor = "green";
+			currOp.forEach(item => item.style.backgroundColor = compare ? "#E74C3C" : "#27AE60");
 			break;
 		case "switch":
 			break;
