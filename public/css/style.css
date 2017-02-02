@@ -99,8 +99,18 @@ body {
 	}
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-device-width: 730px) {
+	html {
+		font-size: 40px;
+	}
 	#main-container {
-		width: calc(80%);
+		margin-top: 0.5rem;
+		width: calc(100% - 1rem) !important;
+	}
+}
+
+@media screen and (max-width: 940px), screen and (max-device-width: 940px) {
+	#main-container {
+		width: 80%;
 	}
 }
