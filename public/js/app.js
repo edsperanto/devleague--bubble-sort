@@ -7,7 +7,13 @@ var currOp = [];
 	vBubble.reset();
 })();
 
-document.getElementById('title').addEventListener('click', () => {
+function center(div) {
+	let divBottom = div.offsetTop + div.getBoundingClientRect().height;
+	let wHeight = window.innerHeight;
+	window.scrollTo(0, divBottom - wHeight / 2);
+}
+
+document.getElementById('next').addEventListener('click', () => {
 	let output = vBubble.next();
 	let op1 = output.opID[0];
 	let op2 = output.opID[1];
@@ -29,4 +35,5 @@ document.getElementById('title').addEventListener('click', () => {
 		default:
 			console.log('invalid action');
 	}
+	center(itemList[op1]);
 });
