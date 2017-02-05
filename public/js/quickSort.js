@@ -1,7 +1,9 @@
-module.exports = function q(y) {
-	let l = [], r = [], p = [], g = 'length';
-	let f = a => a = (a[g] > 2) ? q(a) : ((a[g] === 2) ? [a[1], a[0]] : a);
-	y.forEach(n => ((y[0] === n) ? p : ((y[0] > n) ? l : r)).push(n));
-	l = f(l); r = f(r);
-	return l.concat(p.concat(r));
+module.exports = function quickSort(arr) {
+	let left = [], right = [], pivots = [];
+
+	arr.forEach(num => ((arr[0] === num) ? pivots : ((arr[0] > num) ? left : right)).push(num));
+	left = (left.length > 2) ? quickSort(left) : ((left.length === 2) ? [left[1], left[0]] : left);
+	right = (right.length > 2) ? quickSort(right) : ((right.length === 2) ? [right[1], right[0]] : right);
+
+	return left.concat(pivots.concat(right));
 }
