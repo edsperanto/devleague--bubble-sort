@@ -12,7 +12,7 @@ module.exports = function insertionSort(arr) {
 			let tmp = arr[i];
 			arr[i] = arr[i-1];
 			arr[i-1] = tmp;
-			++i;
+			--i;
 		}
 	}
 	return arr;
