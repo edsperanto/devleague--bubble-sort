@@ -73,7 +73,7 @@ describe('Quick Sort', () => {
 		test.should.deep.equal([0,0.2,2.8,3.4,63]);
 	});
 });
-/*
+
 describe('Quick Sort edge cases', () => {
 	it('should allow empty array', () => {
 		let test = quickSort([]);
@@ -106,4 +106,4 @@ describe('Quick Sort edge cases', () => {
 		test.should.equal('Expected array, received object');
 	});
 });
-*/
+
