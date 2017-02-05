@@ -108,7 +108,7 @@ describe('Quick Sort edge cases', () => {
 	});
 });
 
-describe('Quick Sort', () => {
+describe('Insertion Sort', () => {
 	it('should sort array [5,1,4,2,8]', () => {
 		let test = insertionSort([5,1,4,2,8]);
 		test.should.deep.equal([1,2,4,5,8]);
@@ -127,7 +127,7 @@ describe('Quick Sort', () => {
 	});
 });
 
-describe('Quick Sort edge cases', () => {
+describe('Insertion Sort edge cases', () => {
 	it('should allow empty array', () => {
 		let test = insertionSort([]);
 		test.should.deep.equal([]);
