@@ -1,11 +1,11 @@
 module.exports = function quickSort(arr) {
-	let left = [];
-	let right = [];
-	let pivots = [];
+	let l = [];
+	let r = [];
+	let p = [];
 
-	arr.forEach(num => ((arr[0] === num) ? pivots : ((arr[0] > num) ? left : right)).push(num));
-	left = (left.length > 2) ? quickSort(left) : ((left.length === 2) ? [left[1], left[0]] : left);
-	right = (right.length > 2) ? quickSort(right) : ((right.length === 2) ? [right[1], right[0]] : right);
+	arr.forEach(num => ((arr[0] === num) ? p : ((arr[0] > num) ? l : r)).push(num));
+	l = (l.length > 2) ? quickSort(l) : ((l.length === 2) ? [l[1], l[0]] : l);
+	r = (r.length > 2) ? quickSort(r) : ((r.length === 2) ? [r[1], r[0]] : r);
 
-	return left.concat(pivots.concat(right));
+	return l.concat(p.concat(r));
 }
