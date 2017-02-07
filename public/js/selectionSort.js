@@ -13,4 +13,5 @@ module.exports = function selectionSort(arr) {
 		arr[currIdx] = arr[smallestIdx];
 		arr[smallestIdx] = tmp;
 	}
+	return arr;
 }
