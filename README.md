@@ -12,11 +12,25 @@ Repeat this process until there are no more numbers to swap.
 
 ### Pseudocode
 
+While not sorted
+
+-- Loop through array
+
+-- -- if number is bigger than number on its right
+
+-- -- swap the two numbers 
+
 ### Performance
+
+Best case scenario: O(n)
+
+Worst case scenario: O(n^2)
 
 ## Insertion Sort
 
 ### ELI5
+
+
 
 ### Pseudocode
 
