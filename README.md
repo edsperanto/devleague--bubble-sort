@@ -14,11 +14,11 @@ Repeat this process until there are no more numbers to swap.
 
 While not sorted
 
--- Loop through array
+	Loop through array
 
--- -- if number is bigger than number on its right
+		if number is bigger than number on its right
 
--- -- swap the two numbers 
+		swap the two numbers 
 
 ### Performance
 
