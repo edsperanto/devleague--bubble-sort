@@ -13,8 +13,8 @@ Repeat this process until there are no more numbers to swap.
 ### Pseudocode
 
 ```
-While not sorted
-	Loop through array
+while not sorted
+	loop through array
 		if number is bigger than number on its right
 		swap the two numbers 
 ```
@@ -33,7 +33,18 @@ Worst case scenario: O(n^2)
 
 ### Pseudocode
 
+```
+loop through array
+	while current number smaller than number on its left
+		swap the two numbers
+		compare with one more number to the left
+```
+
 ### Performance
+
+Best case scenario: O(n)
+
+Worst case scenario: O(n^2)
 
 ## Selection Sort
 
@@ -41,7 +52,17 @@ Worst case scenario: O(n^2)
 
 ### Pseudocode
 
+```
+prepare new array to put numbers in
+find smallest number in original array until empty
+	put smallest number at the end of new array
+```
+
 ### Performance
+
+Best case scenario: O(n^2)
+
+Worst case scenario: O(n^2)
 
 ## Quick Sort
 
@@ -49,7 +70,15 @@ Worst case scenario: O(n^2)
 
 ### Pseudocode
 
+```
+take 
+```
+
 ### Performance
+
+Best case scenario: O(n log n)
+
+Worst case scenario: O(n^2)
 
 ## Merge Sort
 

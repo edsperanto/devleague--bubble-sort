@@ -1,20 +1,12 @@
-module.exports = function(arr) {
+const isValidArr = require('./isValidArr');
+module.exports = function bubbleSort(arr) {
 	let notDone = true;
-	if(arr instanceof Array == false) {
-		return `Expected array, received ${typeof arr}`;
-	}
-	for(let i = 0; i < arr.length; i++) {
-		if(isNaN(Number(arr[i]))) {
-			return `Item '${arr[i]}' is ${typeof arr[i]} instead of number`;
-		}
-	}
+	if(isValidArr(arr)) return isValidArr(arr);
 	while(notDone) {
 		notDone = false;
 		for(let i = 0; i < arr.length - 1; i++) {
 			if(arr[i] > arr[i + 1]) {
-				let temp = arr[i + 1];
-				arr[i + 1] = arr[i];
-				arr[i] = temp;
+				[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
 				notDone = true;
 			}
 		}

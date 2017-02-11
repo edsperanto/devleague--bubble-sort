@@ -1,12 +1,6 @@
+const isValidArr = require('./isValidArr');
 module.exports = function selectionSort(arr) {
-	if(arr instanceof Array == false) {
-		return `Expected array, received ${typeof arr}`;
-	}
-	for(let i = 0; i < arr.length; i++) {
-		if(isNaN(Number(arr[i]))) {
-			return `Item '${arr[i]}' is ${typeof arr[i]} instead of number`;
-		}
-	}
+	if(isValidArr(arr)) return isValidArr(arr);
 	for(let currIdx = 0; currIdx < arr.length; currIdx++) {
 		let tmp;
 		let smallest = arr[currIdx];
@@ -17,9 +11,7 @@ module.exports = function selectionSort(arr) {
 				smallestIdx = i;
 			}
 		}
-		tmp = arr[currIdx];
-		arr[currIdx] = arr[smallestIdx];
-		arr[smallestIdx] = tmp;
+		[arr[currIdx], arr[smallestIdx]] = [arr[smallestIdx], arr[currIdx]];
 	}
 	return arr;
 }
