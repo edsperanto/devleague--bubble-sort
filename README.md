@@ -89,7 +89,24 @@ Repeat this process for these small groups until it is indivisible.
 ### Pseudocode
 
 ```
-take 
+Use first number in unsorted array as pivot.
+Loop through remaining array
+	if number smaller than pivot
+		push to left array
+	else
+		push to right array
+	if left array has more than 2 numbers
+		quick sort left array
+	else
+		if left array has 2 numbers
+			swap them
+		else
+			leave left array as it is
+		if right array has 2 numbers
+			swap them
+		else
+			leave right array as it is
+return left array concat pivot concat right array
 ```
 
 ### Performance
