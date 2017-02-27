@@ -76,6 +76,8 @@ Worst case scenario: O(n^2)
 
 ## Quick Sort
 
+### ELI5
+
 Find a number in array as divider.
 
 Numbers smaller than divider will group to its left.
@@ -83,8 +85,6 @@ Numbers smaller than divider will group to its left.
 Numbers greater than divider will group to its right.
 
 Repeat this process for these small groups until it is indivisible.
-
-### ELI5
 
 ### Pseudocode
 
