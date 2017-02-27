@@ -127,6 +127,27 @@ Repeat until all small pieces are grouped back to size of original array.
 
 ### Pseudocode
 
+```
+if array has only 1 number
+	return array
+if array has only 2 numbers
+	if first number is greater than second number
+		swap them
+	return array
+if array has more than 2 numbers
+	cut array in half to arr1 and arr2
+	merge sort arr1 and arr2
+	repeat until new array is equal to length of arr1 and arr2 combined
+		if arr1 is empty
+			append rest of arr2 to new array
+			break out of loop
+		if arr2 is empty
+			append rest of arr1 to new array
+			break out of loop
+		find smaller number among first item in arr1 and arr2
+		push smaller number into new array
+```
+
 ### Performance
 
 Best case scenario: O(n log n)
