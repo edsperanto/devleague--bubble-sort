@@ -29,7 +29,11 @@ Worst case scenario: O(n^2)
 
 ### ELI5
 
+Look at each number in a list and compare it to the number on its left.
 
+If it is smaller than the number on its left, swap them.
+
+Repeat this process until there are no more numbers to swap.
 
 ### Pseudocode
 
@@ -50,6 +54,12 @@ Worst case scenario: O(n^2)
 
 ### ELI5
 
+Look for the smallest number in array.
+
+When found, push number to end of sorted array.
+
+Repeat until original array is empty.
+
 ### Pseudocode
 
 ```
@@ -65,6 +75,14 @@ Best case scenario: O(n^2)
 Worst case scenario: O(n^2)
 
 ## Quick Sort
+
+Find a number in array as divider.
+
+Numbers smaller than divider will group to its left.
+
+Numbers greater than divider will group to its right.
+
+Repeat this process for these small groups until it is indivisible.
 
 ### ELI5
 
@@ -84,6 +102,16 @@ Worst case scenario: O(n^2)
 
 ### ELI5
 
+Break array into smaller pieces until there is one number in each piece.
+
+Sort and group each small piece one at a time.
+
+Repeat until all small pieces are grouped back to size of original array.
+
 ### Pseudocode
 
 ### Performance
+
+Best case scenario: O(n log n)
+
+Worst case scenario: O(n log n)
